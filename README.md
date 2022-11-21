@@ -7,7 +7,14 @@
 
 ```sh
 sudo apt install -y build-essential
-make all WHAT=cmd/kubeadm GOFLAGS=-v
+
+
+make all WHAT=cmd/kubeadm GOFLAGS=-v &
+make all WHAT=cmd/kubectl GOFLAGS=-v &
+make all WHAT=cmd/kubelet GOFLAGS=-v &
+wait
 ```
 
 - `_output/bin/kubeadm`
+- `_output/bin/kubectl`
+- `_output/bin/kubelet`
